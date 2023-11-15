@@ -9,7 +9,7 @@
  * Return: return the value of printing
  */
 
-int helping_print_sn(char *word, size_t space, const char *sun, ...)
+void helping_print_sn(char *word, size_t space, const char *sun, ...)
 {
     const char *ptints = sun;
     char *book = word;
@@ -48,7 +48,6 @@ int helping_print_sn(char *word, size_t space, const char *sun, ...)
         }
     }
 }
-
 /**
  * cust_print_sn - this func to print the sn
  * @word: point look the char str

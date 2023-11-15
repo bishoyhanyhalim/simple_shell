@@ -66,7 +66,7 @@ void on_the_term(char *sizeing, int now_on_termi);
 void func_helps_pid(char *name_of_prog, int *count_num_erro,
 			  char *input_com, char *const args[], char *const env[]);
 
-int helping_print_sn(char *word, size_t space, const char *sun, ...);
 
 
+void helping_print_sn(char *word, size_t space, const char *sun, ...);
 #endif
