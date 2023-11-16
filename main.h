@@ -1,13 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-
-
-
-
-
-
-
 #include <stdio.h>
 #include <fcntl.h>
 #include <sys/types.h>
@@ -38,7 +31,7 @@ bool cust_comm_func(char *name_of_prog, char *input_com, int *count_num_erro);
 void help_print_env(void);
 
 void cust_func_exit(char *name_of_prog, int *count_num_erro,
-						char *input_com, char *arg);
+							 char *input_com, char *arg);
 
 int cust_from_len(const char *line_char);
 
@@ -56,7 +49,7 @@ char *func_to_env(const char *good);
 
 char *cust_to_cyp(char *hope, const char *homes);
 
-int cust_print_sn(char *word, size_t space, const char *sun, ...);
+int func_to_p_sn(char *soon, size_t home, const char *jamp, ...);
 
 int cust_fget_for_c(FILE *lives_far);
 
@@ -64,7 +57,7 @@ void for_help_exec(char *name_of_prog, char *input_com,
 				 char *const argv[], char *const env[], int *count_num_erro);
 
 void cust_comm_func_help(char *name_of_prog, char *input_com,
-						int *count_num_erro);
+							 int *count_num_erro);
 
 int func_atoi_convert(const char *str);
 
@@ -73,7 +66,7 @@ void on_the_term(char *sizeing, int now_on_termi);
 void func_helps_pid(char *name_of_prog, int *count_num_erro,
 			  char *input_com, char *const args[], char *const env[]);
 
+void helps_sn_pri(char **food, const char **funs,
+					size_t *host, int *values, va_list *args);
 
-
-void helping_print_sn(char *word, size_t space, const char *sun, ...);
 #endif

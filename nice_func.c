@@ -1,87 +1,101 @@
 #include "main.h"
 
 /**
- * helping_print_sn - this func to print the sn
- * @word: point look the char str
- * @space: this is the size
- * @sun: look for const char
+ * helps_sn_pri - this help func to print the sn
+ * @food: point look the char str
+ * @funs: this is the size
+ * @host: this is the host
+ * @goes:it is the goess
+ * @args: it is args
  *
  * Return: return the value of printing
  */
 
-void helping_print_sn(char *word, size_t space, const char *sun, ...)
+void helps_sn_pri(char **food, const char **funs,
+					size_t *host, int *goes, va_list *args)
 {
-const char *ptints = sun;
-char *book = word;
-int values = 0;
-size_t saveing = space;
-va_list args;
 
-while (*ptints != '\0' && saveing > 1)
-{
-if (*ptints == '%' && *(ptints + 1) == 's')
-{
-char *arg = va_arg(args, char *);
-size_t arg_len = cust_from_len(arg);
+	while (**funs != '\0' && *host > 1)
+	{
 
-if (arg_len < saveing - 1)
-{
-cust_to_cyp(book, arg);
-book += arg_len;
-saveing -= arg_len;
-values += arg_len;
-}
-else
-{
-break;
+		if (**funs == '%' && *(*funs + 1) == 's')
+		{
+
+			char *arg = va_arg(*args, char *);
+			size_t arg_len = cust_from_len(arg);
+
+			if (arg_len < *host - 1)
+			{
+				cust_to_cyp(*food, arg);
+
+				*food += arg_len;
+				*host -= arg_len;
+				*goes += arg_len;
+
+			}
+			else
+			{
+				break;
+			}
+
+			*funs += 2;
+
+		}
+		else
+		{
+			*(*food) = **funs;
+			(*food)++;
+			(*funs)++;
+			(*host)--;
+			(*goes)++;
+		}
+	}
 }
 
-ptints += 2;
-}
-else
-{
-*book = *ptints;
-book++;
-ptints++;
-saveing--;
-values++;
-}
-}
-}
 /**
- * cust_print_sn - this func to print the sn
- * @word: point look the char str
- * @space: this is the size
- * @sun: look for const char
+ * func_to_p_sn - this func to print the sn
+ * @soon: point look the char str
+ * @home: this is the size
+ * @jamp: look for const char
  *
  * Return: return the value of printing
  */
 
-int cust_print_sn(char *word, size_t space, const char *sun, ...)
+int func_to_p_sn(char *soon, size_t home, const char *jamp, ...)
 {
-char *book = word;
-int values = 0;
-size_t saveing = space;
-va_list args;
+	int goes = 0;
+	char *food = soon;
+	const char *funs = jamp;
+	size_t host = home;
+	va_list args;
 
-va_start(args, sun);
+	va_start(args, jamp);
 
-if (word == NULL || sun == NULL || space == 0)
-{
-return (-1);
-}
 
-helping_print_sn(word, space, sun);
+	if (soon == NULL || jamp == NULL || home == 0)
+	{
 
-va_end(args);
+		return (-1);
 
-if (saveing > 0)
-{
-*book = '\0';
-}
-else
-{
-return (-1);
-}
-return (values);
+	}
+
+
+	helps_sn_pri(&food, &funs, &host, &goes, &args);
+
+	va_end(args);
+
+	if (host > 0)
+	{
+
+		*food = '\0';
+
+	}
+	else
+	{
+
+		return (-1);
+
+	}
+
+	return (goes);
 }
